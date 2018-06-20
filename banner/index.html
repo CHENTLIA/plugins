@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Banner图</title>
+</head>
+<body>
+    <div id="slideBanner">
+        <!--图片的布局-->
+        <ul class="slide-img" id="slide-img">
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+        </ul>
+        <!--小点的布局-->
+        <ul class="slide-nav">
+            <li class="slide-item on"></li>
+            <li class="slide-item"></li>
+        </ul>
+        <!--左右箭头-->
+        <div class="prev-next-btn">
+            <a href="javascript:void(0)" class="slide-pre"><</a>
+            <a href="javascript:void(0)" class="slide-next">></a>
+        </div>
+    </div>
+    <script src="./js/slide.js"></script>
+    <script>
+    var x = new setBanner({
+
+    })
+    </script>
+</body>
+</html>

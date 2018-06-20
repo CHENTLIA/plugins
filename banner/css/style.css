@@ -1,0 +1,14 @@
+#slideBanner{
+    width: 60%;
+    margin: 0 auto;
+}
+
+#slideBanner ul{
+    width: 200%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#slideBanner ul li{ 
+    width: 50%;
+}
