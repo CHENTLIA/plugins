@@ -17,7 +17,9 @@
         }else {
             this.targetDom = targetDom;
         }
-        this.bannerLi = this.targetDom.querySelectorAll('li');
+        //所有banner图的li
+        this.bannerLi = this.targetDom.querySelectorAll('li');  
+        //生成小圆点
         var pLi,
             pUl = document.createElement('ul');
         for(var i = 0, len = this.bannerLi.length; i < len; i++){
@@ -34,7 +36,8 @@
         if(this.pageation){
             document.querySelector('#slideBanner').appendChild(pUl);
             this.pUl = document.querySelector('.pageSelect');
-            this.pLi = this.pUl.querySelectorAll('li')
+            //所有小圆点 
+            this.pLi = this.pUl.querySelectorAll('li')               
         }
         var prev = document.createElement('div'),
             next = document.createElement('div');
@@ -66,9 +69,10 @@
         //自动播放
         autoPlay: function () {
             timer = setInterval( () => { 
-                if(this.index == 2) {
+                if(this.index == this.bannerLi.length - 1) {
                     this.index = 0;
                     this.targetDom.style.left = 0 + 'px';
+
                 }else{
                     this.index ++;
                     this.targetDom.style.left = -(this.bannerLi[this.index].clientWidth) * (this.index) + 'px';
