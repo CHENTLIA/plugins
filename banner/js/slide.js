@@ -5,7 +5,7 @@
         times: 1000,
         eventType: 'click'  //默认设置eventType = 'click'
     }
-    var Swipper = (targetDom, options) => { 
+    var Swipper = function (targetDom, options){ 
         if(!(this instanceof Swipper)){
             return new Swipper(targetDom, options);
         }

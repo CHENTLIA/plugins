@@ -18,13 +18,14 @@
     </div>
     <script src="./js/slide.js"></script>
     <script>
+        console.log(Swipper)
         Swipper('.banner',{
             autoplay: true,
             times: 1000,     
             pageation: true,     //使用圆点
             prevBtn: true,       //使用向左按钮
             nextBtn: true,       // 使用向右按钮
-            // eventType: 'click',  //设置圆点的事件
+            eventType: 'click',  //设置圆点的事件
             toggleTime: '0.5s'   //设置运动时间
         })
     </script>
