@@ -1,14 +1,72 @@
-#slideBanner{
-    width: 60%;
-    margin: 0 auto;
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.8);z-index:9999;
 }
-
-#slideBanner ul{
-    width: 200%;
+.maskBox{
+    position:absolute; 
+    top:35%; 
+    left:50%; 
+    transform:translate(-50%);  
+    width: 60%; 
+    /* height: 200px; */
+    background:#fff;
+    /* padding-bottom: 10px; */
+}
+.diaTitle{
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+}
+.diaTitle p{
+    width: 100%;
+    text-align: center;
+}
+.close{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -50%);
+    cursor: pointer;
+}
+.close:hover{
+    transform: scale(2);
+    top: 0;
+    color: aqua
+}
+.diaContent{
+    width: 100%;
+    text-align: center;
+}
+.contents{
+    width: 100%;
+    height: 100px;
+    padding-top: 40px;
+}
+.handleBtn {
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 40px;
+    line-height: 40px;
 }
 
-#slideBanner ul li{ 
+.handleBtn div{
     width: 50%;
+    text-align: center;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+.handleBtn .closeBtn{
+    border-left: 0;
+    border-right: 0;    
+}
+.handleBtn div:hover{
+    background: #f30;
+    color: #fff;
 }

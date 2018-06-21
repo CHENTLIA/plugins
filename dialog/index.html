@@ -8,48 +8,16 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>弹出层</title>
     <style>
-        .mask{
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height:100%;
-            background-color: rgba(0,0,0,0.8);z-index:9999;
-        }
-        .maskBox{
-            position:absolute; 
-            top:50%; 
-            left:50%; 
-            transform:translate(-50%);  
-            width: 60%; 
-            height: 200px;
-            background:#fff
-        }
-        .diaTitle{
-            height: 40px;
-            line-height: 40px;
-            text-align: center;
-        }
-        .diaContent{
-            width: 100%;
-            text-align: center;
-            padding: 50px 0;
-        }
+        
     </style>
 </head>
-<body>
-    <div id="dialog">
-        <p class="myDialog">弹出层</p>
-    </div>
+<body> 
+    <input type="button" name="" value="点击弹出" id="dialog">
     <script src="./js/dialog.js"></script>
     <script>
-        MaskDialog(".myDialog",{  
-            boxDomStyle:{  
-                opacity:".9"  
-            },  
-            imgDomStyle:{  
-                opacity:".8"  
-            }
+        MaskDialog("#dialog",{  
+            title: '已经完成弹出框',
+            content: '自不自豪？就是简单了点'  
         }); 
     </script>
 </body>
