@@ -5,7 +5,7 @@
         times: 1000,
         eventType: 'click'  //默认设置eventType = 'click'
     }
-    var Swipper = function (targetDom, options) { 
+    var Swipper = (targetDom, options) => { 
         if(!(this instanceof Swipper)){
             return new Swipper(targetDom, options);
         }
@@ -63,7 +63,7 @@
             console.log(this.targetDom)
         },
         autoPlay: function () {
-            timer = setInterval( () =>{ 
+            timer = setInterval( () => { 
                 if(this.index == 2) {
                     this.index = 0;
                     this.targetDom.style.left = 0 + 'px';
@@ -77,7 +77,7 @@
         },
         prev: function () { 
             var self = this;
-            document.querySelector('.prev').addEventListener('click', function () { 
+            document.querySelector('.prev').addEventListener('click', () => { 
                 clearInterval(timer);
                 if(self.index>0){
                     self.index--;
@@ -91,7 +91,7 @@
         },
         next: function () { 
             var self = this;
-            document.querySelector('.next').addEventListener('click', function () { 
+            document.querySelector('.next').addEventListener('click', () => { 
                 clearInterval(timer);
                 if(self.index<self.bannerLi.length - 1){
                     self.index++;
@@ -105,13 +105,13 @@
         },
         onmouseover: function () { 
             // var self = this;
-            document.getElementById('slideBanner').addEventListener('mouseover', ()=>{
+            document.getElementById('slideBanner').addEventListener('mouseover', () => {
                 clearInterval(timer);
             })
         },
         onmouseout: function () { 
             var self = this;
-            document.getElementById('slideBanner').addEventListener('mouseout', ()=>{
+            document.getElementById('slideBanner').addEventListener('mouseout', () => {
                 self.autoPlay();
             })
         },
@@ -120,7 +120,7 @@
             var pageSelectLi = self.pLi;
             for(var i = 0, len = pageSelectLi.length; i < len; i++) {
                 (function (num) { 
-                    pageSelectLi[num].addEventListener(self.eventType, function () { 
+                    pageSelectLi[num].addEventListener(self.eventType, () => { 
                         self.index = num;
                         self.targetDom.style.transition = 'all'+' '+ self.toggleTime +' ' +'linear';
                         self.targetDom.style.left = -(self.bannerLi[self.index].clientWidth) * (self.index) + 'px';
