@@ -10,6 +10,7 @@
             return new Swipper(targetDom, options);
         }
         var self = this;
+        //合成options
         self = Object.assign(self, defaultOption, options);
         if((typeof targetDom) === 'string') {
             this.targetDom = document.querySelector(targetDom)
@@ -62,11 +63,13 @@
             this.event()
             console.log(this.targetDom)
         },
+        //自动播放
         autoPlay: function () {
             timer = setInterval( () => { 
                 if(this.index == 2) {
                     this.index = 0;
                     this.targetDom.style.left = 0 + 'px';
+
                 }else{
                     this.index ++;
                     this.targetDom.style.left = -(this.bannerLi[this.index].clientWidth) * (this.index) + 'px';
@@ -75,6 +78,7 @@
                 this.moveTo();
             }, this.times)
         },
+        //之前一个按钮
         prev: function () { 
             var self = this;
             document.querySelector('.prev').addEventListener('click', () => { 
@@ -89,6 +93,7 @@
                 self.moveTo();
             })
         },
+        //下一个按钮
         next: function () { 
             var self = this;
             document.querySelector('.next').addEventListener('click', () => { 
@@ -103,18 +108,21 @@
                 self.moveTo()
             })
         },
+        //鼠标移入轮播暂停
         onmouseover: function () { 
             // var self = this;
             document.getElementById('slideBanner').addEventListener('mouseover', () => {
                 clearInterval(timer);
             })
         },
+        //鼠标移出继续轮播
         onmouseout: function () { 
             var self = this;
             document.getElementById('slideBanner').addEventListener('mouseout', () => {
                 self.autoPlay();
             })
         },
+        //根据传的eventType来添加圆点的事件，mouseover还是 click，或者其他
         event: function () { 
             var self = this;
             var pageSelectLi = self.pLi;
@@ -129,6 +137,7 @@
                 })(i)
             }
         },
+        // 添加当前标识符
         moveTo: function () { 
             var self = this;
             
@@ -138,6 +147,15 @@
             }
             self.pLi[self.index].classList.add('on')
             self.bannerLi[self.index].classList.add('on')
+        },
+        //插入到元素后面
+        insertAfter: function (newElem, targetElem) { 
+            var parentElem = targetElem.parentNode;
+            if (parentElem.lastChild == targetElem) {
+                parentElem.appendChild(newElem)
+            } else {
+                parentElem.insertBefore(newElem, targetElem.nextSibling)
+            }
         }
     }
     window.Swipper = Swipper;
