@@ -69,7 +69,6 @@
                 if(this.index == 2) {
                     this.index = 0;
                     this.targetDom.style.left = 0 + 'px';
-
                 }else{
                     this.index ++;
                     this.targetDom.style.left = -(this.bannerLi[this.index].clientWidth) * (this.index) + 'px';

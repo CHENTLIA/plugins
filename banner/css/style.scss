@@ -42,9 +42,9 @@ a:active{
             width: 10px;
             height: 10px;
             @include border-radius(50%);
-            background: rgba(0, 0, 0, 0.5);
+            background: #ccc;
             &.on{
-                background: #ccc;
+                background: #f30;
             }
         }
     }
