@@ -2,7 +2,7 @@ html,body,div,article,header,section,nav,aside,footer,p,ul,li,a,ol,dl,dt,dd,span
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     zoom: 1;
 }
 
