@@ -44,7 +44,6 @@
         if(this.prevBtn){
             document.querySelector('#slideBanner').appendChild(prev);
             document.querySelector('#slideBanner').appendChild(next);
-            
         }
         this.init();
     }
@@ -60,7 +59,7 @@
             }   
             this.onmouseover();
             this.onmouseout();
-            // this.hover()
+            this.event()
             console.log(this.targetDom)
         },
         autoPlay: function () {
@@ -73,12 +72,7 @@
                     this.targetDom.style.left = -(this.bannerLi[this.index].clientWidth) * (this.index) + 'px';
                 }
                 this.targetDom.style.transition = 'all'+' '+ this.toggleTime +' ' +'linear';
-                for(var i = 0, len = this.pLi.length; i < len; i++) {
-                    this.pLi[i].classList.remove('on');
-                    this.bannerLi[i].classList.remove('on');
-                }
-                this.pLi[this.index].classList.add('on')
-                this.bannerLi[this.index].classList.add('on')
+                this.moveTo();
             }, this.times)
         },
         prev: function () { 
@@ -92,12 +86,7 @@
                 }
                 self.targetDom.style.transition = 'all 0.5s linear';
                 self.targetDom.style.left = -(self.bannerLi[self.index].clientWidth) * (self.index) + 'px';
-                for(var i = 0, len = self.pLi.length; i < len; i++) {
-                    self.pLi[i].classList.remove('on');
-                    self.bannerLi[i].classList.remove('on');
-                }
-                self.pLi[self.index].classList.add('on')
-                self.bannerLi[self.index].classList.add('on')
+                self.moveTo();
             })
         },
         next: function () { 
@@ -111,12 +100,7 @@
                 }
                 self.targetDom.style.transition = 'all'+' '+ self.toggleTime +' ' +'linear';
                 self.targetDom.style.left = -(self.bannerLi[self.index].clientWidth) * (self.index) + 'px';
-                for(var i = 0, len = self.pLi.length; i < len; i++) {
-                    self.pLi[i].classList.remove('on');
-                    self.bannerLi[i].classList.remove('on');
-                }
-                self.pLi[self.index].classList.add('on')
-                self.bannerLi[self.index].classList.add('on')
+                self.moveTo()
             })
         },
         onmouseover: function () { 
@@ -133,23 +117,27 @@
         },
         event: function () { 
             var self = this;
-            var pageSelectLi = self.bannerLi;
+            var pageSelectLi = self.pLi;
             for(var i = 0, len = pageSelectLi.length; i < len; i++) {
                 (function (num) { 
                     pageSelectLi[num].addEventListener(self.eventType, function () { 
-                        console.log(num)
+                        self.index = num;
+                        self.targetDom.style.transition = 'all'+' '+ self.toggleTime +' ' +'linear';
+                        self.targetDom.style.left = -(self.bannerLi[self.index].clientWidth) * (self.index) + 'px';
+                        self.moveTo();
                     })
                 })(i)
             }
         },
-        //设置insertAfter
-        insertAfter: function (newElem, targetElem) {
-            var parent = targetElem.parentNode;
-            if(parent.lastChild == targetElem) {
-                parent.appendChild(newElem);
-            } else {
-                parent.insertBefore(newElem, targetElem, nextSibling)
+        moveTo: function () { 
+            var self = this;
+            
+            for(var i = 0, len = self.pLi.length; i < len; i++) {
+                self.pLi[i].classList.remove('on');
+                self.bannerLi[i].classList.remove('on');
             }
+            self.pLi[self.index].classList.add('on')
+            self.bannerLi[self.index].classList.add('on')
         }
     }
     window.Swipper = Swipper;
